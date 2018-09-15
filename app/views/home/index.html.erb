@@ -1,0 +1,18 @@
+<h1>Home</h1>
+
+<!-- Flash -->
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<!-- when logged in -->
+<% if current_user %>
+  <p>Welcome <%= current_user.email %>!</p>
+  <%= link_to "Logout", magic_tokens_destroy_path, method: :delete %>
+<!-- when not logged in -->
+<% else %>
+  <p>Not logged in.</p>
+  <%= link_to 'Login', new_magic_tokens_path %>
+<% end %>

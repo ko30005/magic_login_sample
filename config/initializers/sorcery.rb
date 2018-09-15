@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # The first thing you need to configure is which modules you need in your app.
 # The default is nothing which will include only core features (password encryption, login/logout).
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
@@ -366,7 +368,7 @@ Rails.application.config.sorcery.configure do |config|
     # Default: `5 * 60`
     #
     # user.reset_password_time_between_emails =
-    
+
     # access counter to a reset password page attribute name
     # Default: `:access_count_to_reset_password_page`
     #
@@ -394,13 +396,13 @@ Rails.application.config.sorcery.configure do |config|
     # mailer class. Needed.
     # Default: `nil`
     #
-    # user.magic_login_mailer_class =
+    user.magic_login_mailer_class = UserMailer
 
 
     # magic login email method on your mailer class.
     # Default: `:magic_login_email`
     #
-    # user.magic_login_email_method_name =
+    user.magic_login_email_method_name = :magic_login_email
 
 
     # when true sorcery will not automatically
@@ -408,7 +410,7 @@ Rails.application.config.sorcery.configure do |config|
     # manually handle how and when email is sent
     # Default: `true`
     #
-    # user.magic_login_mailer_disabled =
+    user.magic_login_mailer_disabled = false
 
 
     # how many seconds before the request expires. nil for never expires.
